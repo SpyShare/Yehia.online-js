@@ -1,0 +1,12 @@
+var imported = document.createElement('script');
+imported.src = 'https://www.googletagmanager.com/gtag/js?id=UA-157974942-1';
+document.head.appendChild(imported);
+    var importedtest = document.createElement('script');
+importedtest.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js';
+document.head.appendChild(importedtest);
+      var importedtestDAd = document.createElement('script');
+importedtestDAd.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+document.head.appendChild(importedtestDAd);
+      var importedtestDd = document.createElement('script');
+importedtestDd.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+document.head.appendChild(importedtestDd);

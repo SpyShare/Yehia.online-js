@@ -1,0 +1,654 @@
+
+  <!-- Yehia Online ( C )  2020  -->
+
+
+
+
+<style>
+@import"https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
+@import "https://pro.fontawesome.com/releases/v5.10.2/css/all.css";
+@charset "UTF-8";
+@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro|Poly:400i");
+body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+body .clip {
+  z-index: 2;
+  position: fixed;
+  bottom: 3rem;
+  left: 3rem;
+  width: 0rem;
+  height: 0rem;
+  border-radius: 100%;
+}
+body .clip.anim {
+  -webkit-animation: open 1.5s ease-in;
+          animation: open 1.5s ease-in;
+}
+@-webkit-keyframes open {
+  0% {
+    bottom: 3rem;
+    left: 3rem;
+    width: 0rem;
+    height: 0rem;
+    -webkit-clip-path: circle(0rem at center);
+            clip-path: circle(0rem at center);
+  }
+  100% {
+    bottom: calc(-250vmax + 3rem);
+    left: calc(-250vmax + 3rem);
+    width: 500vmax;
+    height: 500vmax;
+    -webkit-clip-path: circle(100% at center);
+            clip-path: circle(100% at center);
+  }
+}
+@keyframes open {
+  0% {
+    bottom: 3rem;
+    left: 3rem;
+    width: 0rem;
+    height: 0rem;
+    -webkit-clip-path: circle(0rem at center);
+            clip-path: circle(0rem at center);
+  }
+  100% {
+    bottom: calc(-250vmax + 3rem);
+    left: calc(-250vmax + 3rem);
+    width: 500vmax;
+    height: 500vmax;
+    -webkit-clip-path: circle(100% at center);
+            clip-path: circle(100% at center);
+  }
+}
+body .container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  overflow: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: var(--background);
+  color: var(--color);
+}
+body .container:not(.dark) {
+  --background: #fcfbfe;
+  --color:#323133;
+  --cardbackground: #ffffff;
+  --cardborder: #e9e9e9;
+  --cardtext:#323133;
+  --cardtext2:#3C3B3D;
+  --cardshadow:rgba(0,0,0,0.1);
+  --accent:#BF263C;
+}
+body .container.dark {
+  --background: #1C1B20;
+  --color:#F5F7FA;
+  --cardbackground: #222126;
+  --cardborder: #252429;
+  --cardtext:#F5F7FA;
+  --cardtext2:#E6E9ED;
+  --cardshadow:rgba(0,0,0,0.1);
+  --accent:#D8334A;
+}
+body .container *[class*="card"] {
+  background: var(--cardbackground);
+  color: var(--cardtext);
+  box-shadow: 0 0 1rem -0.25rem var(--cardshadow);
+}
+body .container *[class*="card"].card-b {
+  border: 1px solid var(--cardborder);
+}
+body .container .darkmode {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 1.75rem;
+  padding: 1rem;
+  margin: 1px;
+  border-radius: 100%;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 1rem -0.25rem var(--accent), inset 0 0 1rem -0.75rem var(--accent);
+  color: var(--accent);
+  cursor: pointer;
+  -webkit-transition: .25s -.05s;
+  transition: .25s -.05s;
+}
+body .container .darkmode:hover {
+  box-shadow: 0 0 1rem -0.25rem var(--accent), inset 0 0 1rem -0.25rem var(--accent);
+}
+body .container .page-width {
+  max-width: 800px;
+  width: calc(100vw - 8rem);
+}
+body .container .header {
+  z-index: 1;
+  align-self: stretch;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: center;
+          justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid var(--cardborder);
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 1.75rem;
+}
+body .container .header .page-width {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+body .container .header .logotext i {
+  position: relative;
+  top: .15rem;
+}
+body .container .header .mytwitter {
+  position: relative;
+  line-height: 4rem;
+  color: var(--accent);
+  text-decoration: none;
+  -webkit-animation: flash 4s ease;
+          animation: flash 4s ease;
+}
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    color: var(--accent);
+  }
+  70%, 80% {
+    color: var(--cardtext);
+  }
+}
+@keyframes flash {
+  0%, 50%, 100% {
+    color: var(--accent);
+  }
+  70%, 80% {
+    color: var(--cardtext);
+  }
+}
+body .container .page {
+  position: relative;
+  margin: 2rem 0;
+  padding: 2rem;
+}
+body .container .page:not(:last-child) {
+  margin-bottom: 0rem;
+}
+body .container .page:target-within {
+  border-color: var(--accent) !important;
+}
+body .container .page h1, body .container .page h2, body .container .page h3, body .container .page h4 , body .container .page h5, body .container .page h6 {
+  margin: 0;
+}
+body .container .page h1:last-child, body .container .page h2:last-child, body .container .page h3:last-child, body .container .page h4:last-child, body .container .page h5:last-child, body .container .page h6:last-child {
+  margin-bottom: 0;
+}
+body .container .page h1 {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cardborder);
+}
+body .container .page h1 a {
+  text-decoration: none;
+  font-weight: 200;
+}
+body .container .page h1 a:hover {
+  font-weight: 400;
+}
+body .container .page p:last-child {
+  margin-bottom: 0;
+}
+body .container .page a {
+  color: var(--accent);
+}
+body .container .page a:not(:hover) {
+  text-decoration: none;
+}
+body .container .page i {
+  color: var(--cardtext2);
+  font-family: "Poly", sans-serif;
+}
+body .container .page ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+body .container .page ul li:before {
+  content: "•";
+  margin-right: 1rem;
+  color: var(--accent);
+}
+body .container .page > div[id] {
+  position: absolute;
+  top: calc(-6rem - 2px);
+}.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}#fonttest {
+  font-size: 1.2em;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+.custom-counter {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.custom-counter li {
+  counter-increment: step-counter;
+  margin-bottom: 10px;
+}
+
+.custom-counter li::before {
+  content: counter(step-counter);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: rgb(0,200,200);
+  color: white;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+</style>
+
+<div id="container" class="container">
+<div class="header card">
+<div class="page-width">
+<div class="logotext">
+
+<img src="https://cdn.statically.io/gh/yehia-hacker/yehia.online/74eef20e/images/Yehia_Logo.jpg" alt="Avatar" class="avatar">
+Yehia.Online</div>
+
+
+
+<a class="mytwitter fab fa-twitter" href="https://twitter.com/yehia_online" target="_blank"></a>
+</div>
+</div>
+<div dir="rtl" class="content" >
+<div class="page card-b page-width">
+<div id="post1"></div>
+<h1>لماذا الإعلان في Yehia Online<a href="#post1" class="fas fa-star"></a></h1>
+<p  style="font-size: 19px;font-weight: bold;">
+يعتبر موقع Yehia online من أوائل المواقع التي بدأت في وقت قصير وأنتشرت بشكل يتزايد يوميا : في عام 2019 تم بناء فكرة الموقع والعمل عليها حتي تنفذت ليكون أول موقع يقدم محتوي نادر وغير متواجد لدي مواقع عربية أخري وفي خلال عام فقط أصبح الموقع في نتائج البحث الأولة وبدأ الإنتشار في أكثر من مواضيع تقنية
+ <br>
+ما هي المميزات ؟
+</p>
+<ol style='font-size:22px;' dir="rtl" id='fonttest' class="custom-counter">
+
+<li> الزوار فئة تقنية</li>
+<li> معدل الإرتداد يبدأ 6 دقائق </li>
+<li> وضع اعلانك داخل كل المشاركات</li>
+<li> زيارات الموقع 14 ألف يوميا  </li>
+<li>    العدد الكلي :  13 مليون زائر  </li>
+
+</ol>
+
+<h2> نتائج الموقع في البحث </h2>
+<br>
+<u>
+<a style='font-size: 20px;line-height: 31px;
+    font-weight: bold;' href='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/19067c9c/1.png' target='_blank'>
+فتح الصورة الأولة</a>
+<br>
+
+<a style='font-size: 20px;line-height: 31px;line-height: 31px;
+    font-weight: bold;' href='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/19067c9c/2.png' target='_blank'>
+فتح الصورة الثانية</a>
+<br>
+
+<a style='font-size: 20px;line-height: 38px;
+    font-weight: bold;' href='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/19067c9c/3.png' target='_blank'>
+فتح الصورة الثالثة</a>
+<br>
+
+<a style='font-size: 20px;
+    font-weight: bold;' href='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/19067c9c/4.png' target='_blank'>
+فتح الصورة الرابعة</a>
+<br>
+
+
+</u>
+
+</div>
+<div class="page card-b page-width">
+<div id="post2"></div>
+
+<!-- ######################## -->
+
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<style>
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}table#tbpcf {
+    font-size: 17px;
+}
+</style>
+<table id='tbpcf'>
+<center><h2>تفاصيل الإعلانات</h2></center><br>
+<thead>
+<tr>
+<th scope="col">المدة الزمنية </th>
+<th scope="col">موضع الإعلان</th>
+<th scope="col">نسبة الظهور</th>
+<th scope="col">السعر</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="المدة الزمنية">7 أيام</td>
+<td data-label="موضع ال‘علان">في كامل الموقع</td>
+<td data-label="نسبة الظهور">100%</td>
+<td data-label="السعر">19 دولار</td>
+</tr>
+<tr>
+<td data-label="المدة الزمنية"> 30 يوما </td>
+<td data-label="موضع ال‘علان">في الجانب فقط</td>
+<td data-label="نسبة الظهور">50%</td>
+<td data-label="السعر">7 دولار</td>
+</tr>
+<tr>
+<td data-label="المدة الزمنية">7 أيام</td>
+<td data-label="موضع ال‘علان">داخل المواضيع فقط</td>
+<td data-label="نسبة الظهور">98%</td>
+<td data-label="السعر">11 دولار</td>
+</tr>
+<tr>
+<td data-label="المدة الزمنية">60 يوما </td>
+<td data-label="موضع ال‘علان">كامل الموقع</td>
+<td data-label="نسبة الظهور">99%</td>
+<td data-label="السعر">121 دولار</td>
+</tr>
+</tbody>
+</table>
+<!-- ################### -->
+
+
+
+<h1>
+مظهر موضع الإعلان
+<a style='color:#23a5a5;' href="#post1" class="fas fa-window-restore"></a></h1>
+
+<p  style="font-size: 19px;font-weight: bold;">
+علي حسب إختلاف مدة ظهور الإعلان والسعر سيبقي في كل الحالات الإعلان الجانبي وتستطيع إضافة فية أكثر من 4 إعلانات وفي كل مرة يتم عمل إعادة تحميل للصفحة يتم ظهور إعلان مختلف من إعلاناتك
+<h2> مظهر الإعلان الجانبي </h2>
+<h4 style='color:green;'> قم بفتح الصور للمشاهدة</h4><u>
+<a style='font-size: 20px;line-height: 31px;
+    font-weight: bold;' href='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/2c78ab83/exadss.png' target='_blank'>
+فتح الصورة الأولة</a>
+<br>
+<a style='font-size: 20px;line-height: 31px;
+    font-weight: bold;' href='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/2c78ab83/exads.png' target='_blank'>
+فتح الصورة الثانية</a></u>
+<br>
+
+<br>
+<h3>
+بلطبع سيتم وضع مثلها تماما داخل المقالات في بداية الموضوع ونهايتة علي حسب الإختيار
+</h3>
+<h1>
+تصميم الإعلان والصيغة
+
+<a style='color:#0c445f;' href="#post1" class="fas fa-object-ungroup"></a></h1>
+<p  style="font-size: 19px;font-weight: bold;">يجب أن بكون إعلان مصمم بصيغة Gif أو Png أو mp4 ولا يتعدي 11 ثانية إذا فيديو ونفضل أن تكون حجم الصورة 300  في 250 ويكون أكثر من صورة لانها تتغير عشوائي لزيادة فرصة النقر 
+
+
+
+بموقع <a href='https://www.canva.com/design/DAEC6yEgKQM/BGwPH85EJ-Oid6yl3Bwmbw/edit' target='_blank' style='color:#26a6f8;'>Canva</a> لتصميم الإعلان
+</p>
+
+
+</p>
+
+
+<h1>
+أنواع الإعلانات المسموح بها .
+
+<a style='color:#169465;' href="#post2" class="fas fa-industry"></a></h1>
+
+
+<ol style='font-size:22px;' dir="rtl" id='fonttest' class="custom-counter">
+
+<li> إعلان عن تطبيق </li>
+<li>   إعلان عن موقع أو مدونة</li>
+<li> إعلان عن قناة يوتيوب  </li>
+<li> إعلان عن دورة أو كورس  </li>
+<li>  إعلان عن منتج ألكتروني  </li>
+
+</ol>
+<p  style="font-size: 19px;font-weight: bold;">
+ولا نسمح بوضع أي إعلان إباحي أو يقع تحت لائحة القانون او أكثر من إعلان لشركات مختلفة ويمكن فعل ذلك في حالة ان الشركة لها ارتبطات فرعية لشركتها.
+</p>
+
+<h1>
+الشفرة الإعلانية .
+
+<a href="#post2" class="fas fa-audio-description"></a></h1>
+
+<p  style="font-size: 19px;font-weight: bold;">
+
+نستخدم شفرة إعلانية متقدمة من جافاسكريبت تعرض الإعلانات بشكل عشوائي لكل إعلان في الظهور ويمكن تخصيص رابط وعنوان وحجم لكل إعلان ويمكن إستخدامهذة الشفرة الإعلانية في أكثر من موقع أخر ولا يمكن حظر إعلانك بأستخدام ADBlock  وهذا مثال علي الوحدة الإعلانية :
+
+</p>
+<style>
+@import"https://cdn.statically.io/gh/yehia-hacker/yehia.online/6c055b71/Css/Codemirror_Big.css";
+@import "https://codemirror.net/theme/blackboard.css";
+</style>
+
+<textarea id="بايثون-python,202090403454354362020"> {
+  url = "https://www.google.com/";
+  alt = " Test Title ";
+  title = "Test Title  ";
+  banner = "https://example.com/test.png";
+  width = "300";
+  height = "250";
+}</textarea>
+
+<script id="rendered-js">
+      
+let YehiaOnline202090403454354362020 = CodeMirror.fromTextArea(
+document.getElementById("بايثون-python,202090403454354362020"),
+{
+  lineNumbers: true,
+  lineWrapping: true,
+  mode: "python",
+  htmlMode: true,
+  theme: "blackboard",
+  tabSize: 4,
+  indentUnit: 4 });
+    </script>
+<h1>
+تجربة الوحدة الإعلانية .
+<a style='color:#ef8080;' href="#post2" class="fas fa-code"></a></h1>
+<p  style="font-size: 19px;font-weight: bold;">
+قم بعمل إعادة تحميل للصفحة Refresh لتظهر النتائج المختلفة
+</p>
+<script src='https://cdn.statically.io/gh/SpyShare/Yehia.online-js/d5e089e0/testads.js'></script>
+<br>
+<h1 >
+
+كيف تحصل علي الخدمة لإعلانك .
+<a style='color:#416cb9;' href="#post2" class="fas fa-bullhorn"></a></h1>
+<p  style="font-size: 19px;font-weight: bold;">
+لأننا نهتم بلمعلنين لدينا لم نضع أي وسيلة دفع مباشر : يمكنك التواصل معنا وإرسال المرفقات للإعلان و وسيلة الدفع بايبال أو أي وسيلة ندعمها وسنتواصل معك ويكون هناك دعم نشط بلرسائل ويمكنك إختيار وسيلة للتواصل :
+</p>
+<ol style='font-size:22px;' dir="rtl" id='fonttest' class="custom-counter">
+
+<li>  تواصل عبر <a href='https://twitter.com/yehia_online' target='_blank'>تويتر </a>  </li>
+<li>  تواصل عبر <a  href='https://www.yehia.online/p/contact.html' target='_blank'> صفحة الموقع </a>  </li>
+<li>  تواصل عبر <a  href='#!' onclick="emails()">البريد </a>  </li>
+<li>  تواصل عبر <a  href='https://www.facebook.com/Yehia-Online-111109667274322/' target='_blank'>فيسبوك </a>  </li>
+<li>  تواصل عبر <a  href='https://www.instagram.com/yehia_online/' target='_blank'>إنستجرام </a>  </li>
+
+</ol>
+
+
+</div>
+<div class="page card-b page-width">
+<div id="post3"></div>
+<center>
+<img src="https://pbs.twimg.com/profile_images/1245046282755936257/QYvuwPvW_400x400.jpg" alt="Avatar" class="avatar">
+
+<h5> Yehia Online </h5>
+
+<footer>
+
+<p style="color:white;">My Website :<br>
+  <a href="https://www.yehia.online/" style="color:green;">www.Yehia.online</a></p>
+
+</footer>
+</center>
+
+</div>
+</div>
+
+<div class="darkmode card-b fas fa-moon"></div>
+</div>
+<div class="clip"></div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script id="rendered-js">
+function fbcn() {
+
+  alert("الحساب معطل حاليا");
+  
+}
+function emails() {
+
+  alert("yehia.online.eg@gmail.com \r\n أو \r\n admin@gmail.com\r\nنوصي بلأول");
+  
+}
+let buttonenabled = true,scroll = 0;
+$(document).on("click", ".darkmode", function () {
+  if (!buttonenabled) return;
+  buttonenabled = false;
+  $(".clip").html($("body >.container")[0].outerHTML);
+  scrollbind($(".clip .container"));
+  $(".clip .container").toggleClass("dark").scrollTop(scroll); 
+  $(".clip .darkmode").toggleClass("fa-moon").toggleClass("fa-sun");
+  $(".clip").addClass("anim"); //Animate the clip
+  setTimeout(function () {
+    $("body >.container").replaceWith($(".clip").html()); //Replace container with clip html
+    scrollbind($("body >.container")); //bind scroll with new container
+    $("body >.container").scrollTop(scroll); //Set scroll position
+    $(".clip").html("").removeClass("anim"); //Hide clip
+    buttonenabled = true;
+  }, 1000); 
+});
+
+const scrollbind = el => el.bind("scroll", function () {
+  scroll = $(this).scrollTop();
+  if ($(".container").length > 1) 
+    $(".container").scrollTop(scroll);
+
+});
+scrollbind($(".container"));
+    </script>
+
+

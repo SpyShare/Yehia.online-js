@@ -12,14 +12,7 @@ str = canioa;
 }
   function handleResponse(response) {
   	var post = response.feed.entry[0];
-       var canioa = post.content.$t.replace(/<[^>]+>/g, '').replace(/&nbsp;/gi,"");
 
-    $('#myBtaan').html('\n'+canioa+'\n');
-        $('#contenaat').html('\n'+canioa+'\n');
-     
-    document.getElementById("text").style.height = 400;
-
-str = canioa;
    
     var countpsy = document.getElementById("endposta").innerHTML =post.title.$t;
 

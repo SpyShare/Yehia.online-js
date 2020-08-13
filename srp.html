@@ -109,9 +109,9 @@ input:focus, textarea.ddd:focus{
 <h2 id='vva' class="cgg"><span class="gg_1"> Google!</span></h2>
 <input type="text" id="gg-result" readOnly/>
 <div class="box">
-<h3 id="gg-title"></h3>
+<h3 dir='rtl' id="gg-title"></h3>
 <cite id="gg-url"></cite>
-<span id="gg-desc"></span>
+<span dir='rtl' id="gg-desc"></span>
 </div>
 </div>
 </div>
@@ -184,10 +184,10 @@ $(function () {
   });
 });
 // Just in case :D :D ====
-var text_ti = "<div dir='rtl'>Lorem Ipsum is simply dummy text of the printing happyy</div>";
+var text_ti = "Lorem Ipsum is simply dummy text of the printing happyy";
 var text_fk = "Focus Keyword";
-var text_ur = "<div dir='rtl'>http://example.com/your-title-url-<b>focus-keyword</b>-more-description</div>";
-var text_de = "<div dir='rtl'><b>Focus Keyword</b> with Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the industry's standard dummy text es verynice.</div>";
+var text_ur = "http://example.com/your-title-url-<b>focus-keyword</b>-more-description</div>";
+var text_de = "<b>Focus Keyword</b> with Lorem Ipsum is simply dummy text of the printing and typesetting industry. has been the industry's standard dummy text es verynice.";
 $("#gg-result").val(text_fk);
 $("#gg-title").html(text_ti);
 $("#gg-url").html(text_ur);

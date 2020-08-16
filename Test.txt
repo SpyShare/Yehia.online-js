@@ -1,0 +1,140 @@
+   
+<script src='https://code.jquery.com/jquery-3.1.1.min.js'></script>
+
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+<style>
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.btn,
+input[type="text"] {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+input[type="text"] {
+padding: 0.5em;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+border: 1px solid #e74c3c;
+}
+
+.btn {
+background-color: #e74c3c;
+color: #fff;
+padding: 0.55em;
+border: none;
+margin-left: -4px;
+cursor: pointer;
+}
+
+.clicked::after {
+content: attr(data-feedback);
+}
+</style>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+<style>
+pre { white-space: pre; }
+
+textarea {
+  height: 240px !important;
+}
+
+p {
+  font-weight: bold;
+}
+</style>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<h3 dir='rtl'>أكتب النصوص لتحويلها</h3>
+
+<hr>
+<div class="form-group">
+<textarea style='font-size: 20px;' dir='rtl' id='test' class="form-control"></textarea>
+</div>
+
+<button onclick="myFunction()" class="btn btn-success">الحصول علي الكود</button>
+
+<div id='allt'>
+<h3 dir='rtl'> أولا يجب إضافة كود Css في B:SKIN ليعمل بشكل تلقائي</h3>
+<xmp id='csscg'>
+.alert{font-family:-apple-system,BlinkMacSystemFont,'Roboto','Segoe UI','Oxygen-Sans','Ubuntu','Cantarell','Helvetica Neue',sans-serif;min-height:38px;padding:12px 15px 15px;margin:5px auto;border-radius:4px;border-left:4px solid;opacity:1;-webkit-transition:opacity .6s;transition:opacity .6s;max-width:90%}.success{background:#edf7ee;color:#4CAF50;border-color:#4CAF50}.alert code,.alert .mark{background:#fff;opacity:.9;padding:3px 5px;border-radius:4px;font-family:Consolas,Monaco,'Andale Mono',monospace;font-size:89%;font-weight:400}
+</xmp>
+
+<input style='text-align: center;' id='contc' type="text" value="نسخ الكود">
+<button class="btn btn-copy" data-feedback=" تم النسخ"><i class="fa fa-clipboard" aria-hidden="true"></i></button>
+<br><br>
+   <h3>قم بوضع الكود التالي داخل المقال</h3>
+
+</div>
+
+<xmp id='Good'></xmp>
+
+</div>
+<div id='cando'>
+<input style='text-align: center;' id='cutwo' type="text" value="نسخ الكود">
+<button class="btn btn-cut" data-feedback="تم"><i class="fa fa-scissors" aria-hidden="true"></i></button>
+</div>
+
+
+
+
+<script>
+function clipboard(elem, event) {
+  elem.prev('input[type="text"]').focus().select();
+  document.execCommand(event);
+  elem.prev('input[type="text"]').blur();
+  elem.addClass('clicked');
+  setTimeout(function () {
+    elem.removeClass('clicked');
+  }, 500);
+}
+
+$('.btn-copy').on('click', function () {
+  clipboard($(this), 'copy');
+});
+$('.btn-cut').on('click', function () {
+  clipboard($(this), 'cut');
+});
+    </script>
+
+
+
+
+<script>
+document.getElementById("allt").style.display = "none";
+document.getElementById("cando").style.display = "none";
+function myFunction() {
+document.getElementById("allt").style.display = "block";
+document.getElementById("cando").style.display = "block";
+var x = document.getElementById("test").value;
+document.getElementById("contc").value = document.getElementById("csscg").textContent;
+var elema = '<div dir="rtl" class="alert success"><ul><li>';
+var endelm = '</li></ul></div>'
+document.getElementById("Good").textContent = elema+x+endelm;
+document.getElementById("cutwo").value = document.getElementById("Good").textContent;
+
+
+}</script>
+
+
+
+<center>
+
+<footer>
+<img src="https://pbs.twimg.com/profile_images/1245046282755936257/QYvuwPvW_400x400.jpg" alt="Avatar" class="avatar">  	 And
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrtdhJAZYsAQR8IF0D91XVk0sop1C32AwZuJzPOwXpjgOLZAkL" alt="Avatar" class="avatar">
+<p style="color:black;">Our Website :<br>
+  <a href="https://www.imintweb.com/" style="color:green;">www.imintweb.com/</a></p>
+
+  <a href="https://www.yehia.online/" style="color:green;">www.Yehia.online</a></p>
+</center>
+</footer>
